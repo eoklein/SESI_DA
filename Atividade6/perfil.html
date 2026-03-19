@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./styles.css">
+    <link rel="stylesheet" href="./pages.css">
+    <title>Perfil - Petshop</title>
+</head>
+<body>
+    <header class="menu">
+        <img src="./img/49918.jpg" alt="Logo Petshop">
+        <h1>Encontre tudo para seu pet!</h1>
+        <p>Petshop</p>
+        <nav class="menu-nav">
+            <a href="index.html">Início</a>
+            <a href="produtos.html">Produtos</a>
+            <a href="planos.html">Planos</a>
+            <a href="perfil.html" class="ativo">Perfil</a>
+        </nav>
+    </header>
+
+    <div class="container-perfil">
+        <aside class="sidebar-perfil">
+            <div class="menu-lateral">
+                <a href="#perfil" class="menu-item ativo">
+                    <span class="icon">👤</span> Meu Perfil
+                </a>
+                <a href="#pedidos" class="menu-item">
+                    <span class="icon">📦</span> Meus Pedidos
+                </a>
+                <a href="#endereco" class="menu-item">
+                    <span class="icon">📍</span> Endereços
+                </a>
+                <a href="#pagamento" class="menu-item">
+                    <span class="icon">💳</span> Pagamento
+                </a>
+                <a href="#configuracoes" class="menu-item">
+                    <span class="icon">⚙️</span> Configurações
+                </a>
+                <a href="#logout" class="menu-item logout">
+                    <span class="icon">🚪</span> Sair
+                </a>
+            </div>
+        </aside>
+
+        <main class="conteudo-perfil">
+            <section id="perfil" class="secao-perfil">
+                <div class="perfil-header">
+                    <a href="login.html" class="perfil-avatar" style="text-decoration: none;">
+                        <img src="./img/49918.jpg" alt="Avatar">
+                        <button class="btn-mudar-foto">Mudar Foto</button>
+                    </a>
+                    <div class="perfil-info">
+                        <h2>EDITAR MEU PERFIL</h2>
+                        <p class="info-label">PERFIL</p>
+                    </div>
+                </div>
+
+                <form class="formulario-perfil">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Nome Completo</label>
+                            <input type="text" placeholder="Seu nome completo">
+                        </div>
+                        <div class="form-group">
+                            <label>Email</label>
+                            <input type="email" placeholder="seu@email.com">
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Telefone</label>
+                            <input type="tel" placeholder="(11) 99999-9999">
+                        </div>
+                        <div class="form-group">
+                            <label>Data de Nascimento</label>
+                            <input type="date">
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>CPF</label>
+                            <input type="text" placeholder="000.000.000-00">
+                        </div>
+                        <div class="form-group">
+                            <label>Plano Atual</label>
+                            <select>
+                                <option>Gold - R$ 99,90/mês</option>
+                                <option>Básico - R$ 49,90/mês</option>
+                                <option>Platina - R$ 199,90/mês</option>
+                                <option>Diamante - R$ 299,90/mês</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-actions">
+                        <button type="submit" class="btn-salvar">Salvar Alterações</button>
+                        <button type="reset" class="btn-cancelar">Cancelar</button>
+                    </div>
+                </form>
+            </section>
+
+            <section id="pedidos" class="secao-pedidos">
+                <h2>Meus Pedidos</h2>
+                <div class="pedidos-lista">
+                    <div class="pedido-item">
+                        <div class="pedido-numero">Pedido #12345</div>
+                        <div class="pedido-data">15 de Março, 2024</div>
+                        <div class="pedido-status">✓ Entregue</div>
+                        <div class="pedido-valor">R$ 234,50</div>
+                    </div>
+                    <div class="pedido-item">
+                        <div class="pedido-numero">Pedido #12344</div>
+                        <div class="pedido-data">10 de Março, 2024</div>
+                        <div class="pedido-status">📦 Em Trânsito</div>
+                        <div class="pedido-valor">R$ 89,90</div>
+                    </div>
+                    <div class="pedido-item">
+                        <div class="pedido-numero">Pedido #12343</div>
+                        <div class="pedido-data">5 de Março, 2024</div>
+                        <div class="pedido-status">✓ Entregue</div>
+                        <div class="pedido-valor">R$ 156,70</div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <footer class="rodape">
+        <div class="titulo">
+            <p>Precisa de ajuda?</p>
+        </div>
+        <div class="campo-email">
+            <input type="email" placeholder="Seu e-mail">
+            <button>Contatar Suporte</button>
+        </div>
+        <div class="menu-rodape">
+            <p>Petshop</p>
+            <ul>
+                <li>Início</li>
+                <li>Produtos</li>
+                <li>Planos</li>
+                <li>Contato</li>
+                <li>Blog</li>
+                <li>Configurações</li>
+            </ul>
+        </div>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,247 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html,
+body {
+    height: 100%;
+    font-family: 'Poppins', sans-serif;
+}
+
+
+
+
+.container {
+    display: flex;
+    height: 100%;
+    justify-content: center;
+}
+
+.lado-esquerdo,
+.lado-direito {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-direction: column;
+    padding: 3rem 2rem 2rem;
+    text-align: center;
+
+}
+
+.lado-esquerdo {
+    background: linear-gradient(135deg, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0.6) 100%), url('./img/cavalo.jpg');
+    background-size: cover;
+    background-position: center;
+    animation: fadeInDown 0.8s ease;
+}
+
+
+.lado-esquerdo h1 {
+    font-size: 5rem;
+    color: #ffffff;
+    font-weight: 700;
+    text-shadow: 2px 2px 8px rgba(0,0,0,0.5);
+}
+
+.lado-direito {
+    padding: 2rem;
+    text-align: center;
+    position: relative;
+    background: linear-gradient(135deg, #f5f5f5 0%, #ffffff 100%);
+    animation: fadeInUp 0.8s ease 0.2s both;
+}
+
+.lado-direito h2 {
+    font-size: 36px;
+    font-weight: 700;
+    margin-top: 10px;
+    margin-bottom: 80px;
+    color: #1a1a1a;
+}
+
+.botoes {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-bottom: 1rem;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+
+.botao {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 50px;
+    width: 330px;
+    padding: 0.75rem;
+    border: none;
+    border-radius: 25px;
+    background: linear-gradient(135deg, #ff9800 0%, #f57c00 100%);
+    color: white;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 600;
+    font-family: 'Poppins', sans-serif;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(255, 152, 0, 0.3);
+}
+
+.botao:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(255, 152, 0, 0.5);
+}
+
+.botao:active {
+    transform: translateY(0);
+}
+
+.botao.google::before,
+.botao.apple::before,
+.botao.email::before {
+    content: "";
+    display: inline-block;
+    width: 1.2em;
+    height: 1.2em;
+    margin-right: 0.5em;
+}
+
+
+
+.outros {
+    font-size: 0.9rem;
+    position: absolute;
+    top: calc(50% + 6rem);
+    left: 50%;
+    transform: translateX(-50%);
+    color: #555;
+}
+
+.outros a {
+    color: #ff9800;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.outros a:hover {
+    color: #f57c00;
+    text-decoration: underline;
+}
+
+.acao {
+    display: inline-block;
+    margin-top: 1rem;
+    padding: 0.75rem 4rem;
+    background: linear-gradient(135deg, #ff9800 0%, #f57c00 100%);
+    color: #fff;
+    border-radius: 25px;
+    text-decoration: none;
+    position: absolute;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 330px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-family: 'Poppins', sans-serif;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(255, 152, 0, 0.3);
+}
+
+.acao:hover {
+    transform: translateX(-50%) translateY(-2px);
+    box-shadow: 0 8px 25px rgba(255, 152, 0, 0.5);
+}
+/* ANIMA��ES */
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* RESPONSIVIDADE */
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+    }
+
+    .lado-esquerdo,
+    .lado-direito {
+        flex: 0 0 50%;
+        min-height: 50vh;
+    }
+
+    .lado-direito h2 {
+        font-size: 28px;
+        margin-bottom: 60px;
+    }
+
+    .botao,
+    .acao {
+        width: 100%;
+        max-width: 300px;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        flex-direction: column;
+    }
+
+    .lado-esquerdo,
+    .lado-direito {
+        flex: 0 0 100%;
+        min-height: 50vh;
+    }
+
+    .lado-esquerdo h1 {
+        font-size: 3rem;
+    }
+
+    .lado-direito h2 {
+        font-size: 20px;
+        margin-bottom: 40px;
+    }
+
+    .botao,
+    .acao {
+        width: calc(100% - 2rem);
+        max-width: none;
+    }
+
+    .botoes {
+        top: 45%;
+    }
+
+    .outros {
+        top: calc(45% + 5rem);
+        font-size: 0.8rem;
+    }
+}
+

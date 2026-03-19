@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./styles.css">
+    <link rel="stylesheet" href="./pages.css">
+    <title>Checkout - Petshop</title>
+</head>
+<body>
+    <header class="menu">
+        <img src="./img/49918.jpg" alt="Logo Petshop">
+        <h1>Encontre tudo para seu pet!</h1>
+        <p>Petshop</p>
+        <nav class="menu-nav">
+            <a href="index.html">Início</a>
+            <a href="produtos.html">Produtos</a>
+            <a href="planos.html">Planos</a>
+            <a href="perfil.html">Perfil</a>
+        </nav>
+    </header>
+
+    <div class="container-checkout">
+        <div class="checkout-content">
+            <section class="secao-checkout">
+                <div class="checkout-header">
+                    <h1>Sua Escolha</h1>
+                </div>
+
+                <div class="checkout-grid">
+                    <div class="checkout-esquerda">
+                        <div class="planos-checkout">
+                            <h3>Plano Selecionado</h3>
+                            <div class="plano-selecionado">
+                                <div class="plano-info">
+                                    <h4>Plano Gold</h4>
+                                    <p>Desconto de 25%</p>
+                                    <p>Envio grátis</p>
+                                    <p>Newsletter exclusiva</p>
+                                    <p>Atendimento prioritário</p>
+                                </div>
+                                <div class="plano-preco-checkout">
+                                    <span class="valor-grande">R$ 99,90</span>
+                                    <span class="periodo-label">/mês</span>
+                                </div>
+                            </div>
+                            <button class="btn-mudar-plano">↻ Mudar Plano</button>
+                        </div>
+
+                        <div class="resumo-itens">
+                            <h3>Itens do Carrinho</h3>
+                            <div class="item-carrinho">
+                                <div class="item-img">📦</div>
+                                <div class="item-detalhes">
+                                    <p>Ração Premium Dog</p>
+                                    <p class="item-qtd">Qtd: 2</p>
+                                </div>
+                                <span class="item-preco">R$ 89,90</span>
+                            </div>
+                            <div class="item-carrinho">
+                                <div class="item-img">🎾</div>
+                                <div class="item-detalhes">
+                                    <p>Brinquedo Interativo</p>
+                                    <p class="item-qtd">Qtd: 1</p>
+                                </div>
+                                <span class="item-preco">R$ 34,90</span>
+                            </div>
+                            <div class="item-carrinho">
+                                <div class="item-img">👕</div>
+                                <div class="item-detalhes">
+                                    <p>Coleira Luxo</p>
+                                    <p class="item-qtd">Qtd: 1</p>
+                                </div>
+                                <span class="item-preco">R$ 45,90</span>
+                            </div>
+                        </div>
+
+                        <div class="resumo-valores">
+                            <div class="valor-linha">
+                                <span>Subtotal:</span>
+                                <strong>R$ 170,70</strong>
+                            </div>
+                            <div class="valor-linha">
+                                <span>Frete:</span>
+                                <strong>GRÁTIS</strong>
+                            </div>
+                            <div class="valor-linha desconto">
+                                <span>Desconto (25%):</span>
+                                <strong>-R$ 42,67</strong>
+                            </div>
+                            <div class="valor-linha total">
+                                <span>Total:</span>
+                                <strong>R$ 128,03</strong>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="checkout-direita">
+                        <div class="pagamento-section">
+                            <h3>Dados de Pagamento</h3>
+                            <form class="formulario-pagamento">
+                                <div class="form-group">
+                                    <label>Titular do Cartão</label>
+                                    <input type="text" placeholder="Nome completo">
+                                </div>
+
+                                <div class="form-group">
+                                    <label>Número do Cartão</label>
+                                    <input type="text" placeholder="0000 0000 0000 0000">
+                                </div>
+
+                                <div class="form-row-2">
+                                    <div class="form-group">
+                                        <label>Validade</label>
+                                        <input type="text" placeholder="MM/AA">
+                                    </div>
+                                    <div class="form-group">
+                                        <label>CVV</label>
+                                        <input type="text" placeholder="000">
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label>Email de Confirmação</label>
+                                    <input type="email" placeholder="seu@email.com">
+                                </div>
+
+                                <button type="submit" class="btn-finalizar">Finalizar Compra</button>
+                            </form>
+                        </div>
+
+                        <div class="endereco-entrega">
+                            <h3>Endereço de Entrega</h3>
+                            <div class="endereco-display">
+                                <p><strong>Rua Principal, 123</strong></p>
+                                <p>São Paulo - SP</p>
+                                <p>CEP: 01234-567</p>
+                                <button class="btn-alterar-endereco">Alterar Endereço</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <footer class="rodape">
+        <div class="titulo">
+            <p>Obrigado por escolher nosso petshop!</p>
+        </div>
+        <div class="menu-rodape">
+            <p>Petshop</p>
+            <ul>
+                <li>Início</li>
+                <li>Produtos</li>
+                <li>Planos</li>
+                <li>Contato</li>
+                <li>Blog</li>
+                <li>Configurações</li>
+            </ul>
+        </div>
+    </footer>
+</body>
+</html>
