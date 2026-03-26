@@ -1,0 +1,35 @@
+body {
+    background-image: url('./img/bg.jpg');
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center
+}
+
+.card-login {
+    background-color: #08687e;
+    max-width: 340px;
+    padding: 10px 30px 45px 30px;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.card-login p {
+    font-size: 28px;
+    color: white;
+    text-transform: uppercase;
+}
+
+.input-icon {
+    display: flex;
+}
+
+.icon {
+    background-color: #faa635;
+    border-radius: 10px 0px 0px 10px;
+}
+
+.icon img{
+    width: 50%;
+}
