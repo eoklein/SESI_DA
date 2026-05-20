@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Orçamento de Cimento | ERP Construção</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.2/html2pdf.bundle.min.js"></script>
+</head>
+<body>
+  <div class="toast" id="toast"></div>
+  <div class="app-shell">
+    <aside class="sidebar">
+      <div class="brand-block">
+        <div class="brand-icon">🏗️</div>
+        <div>
+          <strong>ERP Cimento</strong>
+          <span>Orçamentos Profissionais</span>
+        </div>
+      </div>
+      <nav class="menu-items">
+        <a class="menu-link active" href="#">Dashboard</a>
+        <a class="menu-link" href="#form-area" id="new-budget-link">Novo Orçamento</a>
+        <a class="menu-link" href="#saved-budgets">Orçamentos Salvos</a>
+      </nav>
+    </aside>
+    <main class="content-area">
+      <header class="topbar">
+        <div>
+          <p class="eyebrow">Orçamento de Materiais</p>
+          <h1>ERP de Orçamentos de Cimento</h1>
+        </div>
+        <div class="topbar-meta">
+          <span class="meta-chip" id="current-code">Orçamento</span>
+          <span class="meta-chip" id="current-date">--/--/----</span>
+        </div>
+        <div class="topbar-actions">
+          <button class="ghost-btn" id="new-budget">Novo</button>
+          <button class="ghost-btn" id="save-budget">Salvar</button>
+          <button class="ghost-btn" id="print-budget">PDF</button>
+          <button class="primary-btn" id="whatsapp-budget">WhatsApp</button>
+        </div>
+      </header>
+
+      <section class="dashboard-cards">
+        <article class="metric-card"><span>Orçamentos</span><strong id="metric-count">0</strong></article>
+        <article class="metric-card"><span>Valor Total</span><strong id="metric-value">R$ 0,00</strong></article>
+        <article class="metric-card"><span>Clientes</span><strong id="metric-clients">0</strong></article>
+        <article class="metric-card"><span>Aprovados</span><strong id="metric-approved">0</strong></article>
+      </section>
+
+      <section id="form-area" class="budget-section">
+        <div class="budget-grid">
+          <section class="card customer-card">
+            <div class="card-heading"><h2>Cadastro do Cliente</h2></div>
+            <div class="form-grid">
+              <label><span>Nome</span><input id="client-name" type="text" placeholder="Nome completo" /></label>
+              <label><span>Empresa</span><input id="client-company" type="text" placeholder="Empresa" /></label>
+              <label><span>CPF/CNPJ</span><input id="client-tax" type="text" placeholder="000.000.000-00" /></label>
+              <label><span>Telefone</span><input id="client-phone" type="tel" placeholder="(00) 90000-0000" /></label>
+              <label><span>Email</span><input id="client-email" type="email" placeholder="contato@empresa.com" /></label>
+              <label class="full-span"><span>Endereço</span><input id="client-address" type="text" placeholder="Rua, número, bairro" /></label>
+              <label><span>Cidade</span><input id="client-city" type="text" placeholder="Cidade" /></label>
+              <label><span>CEP</span><input id="client-zipcode" type="text" placeholder="00000-000" /></label>
+            </div>
+          </section>
+
+          <section class="card materials-card">
+            <div class="card-heading">
+              <div><h2>Materiais</h2><p>Adicione cimento, areia, brita e argamassa.</p></div>
+              <button class="secondary-btn" id="add-material">+ Adicionar</button>
+            </div>
+            <div class="table-wrap">
+              <table class="materials-table">
+                <thead><tr><th>Produto</th><th>Quantidade</th><th>Valor Unit.</th><th>Total</th><th>Ações</th></tr></thead>
+                <tbody id="materials-body"></tbody>
+              </table>
+            </div>
+          </section>
+
+          <section class="card notes-card">
+            <div class="card-heading"><h2>Observações</h2></div>
+            <label><span>Condições</span><textarea id="payment-terms" rows="3">50% na aprovação, 50% na entrega.</textarea></label>
+            <label><span>Prazo</span><textarea id="deadline-terms" rows="2">Entrega em até 7 dias úteis.</textarea></label>
+            <label><span>Validade</span><textarea id="validity-terms" rows="2">Orçamento válido por 15 dias.</textarea></label>
+            <label class="full-span"><span>Observações</span><textarea id="general-notes" rows="3">Orçamento válido por 15 dias.</textarea></label>
+          </section>
+        </div>
+
+        <aside class="right-panel">
+          <section class="card summary-card">
+            <div class="card-heading"><h2>Resumo</h2></div>
+            <div class="summary-lines">
+              <div class="summary-row"><span>Subtotal</span><strong id="subtotal-label">R$ 0,00</strong></div>
+              <div class="summary-row"><span>Impostos</span><strong id="tax-label">R$ 0,00</strong></div>
+              <div class="summary-row"><span>Frete</span><input id="shipping" type="number" min="0" value="120" />R$</div>
+              <div class="summary-row"><span>Desconto</span><input id="discount" type="number" min="0" value="0" />%</div>
+              <div class="summary-row total-row"><span>Total Final</span><strong id="total-label">R$ 0,00</strong></div>
+              <div class="summary-meta"><span>Status</span><select id="budget-status"><option>Rascunho</option><option>Enviado</option><option>Aprovado</option><option>Recusado</option></select></div>
+              <div class="summary-meta"><span>Itens</span><strong id="total-items">0</strong></div>
+            </div>
+          </section>
+
+          <section class="card saved-card" id="saved-budgets">
+            <div class="card-heading"><h2>Orçamentos Salvos</h2></div>
+            <div class="table-wrap saved-wrap">
+              <table class="saved-table">
+                <thead><tr><th>Código</th><th>Cliente</th><th>Total</th><th>Status</th><th>Ações</th></tr></thead>
+                <tbody id="saved-budgets-body"></tbody>
+              </table>
+            </div>
+          </section>
+        </aside>
+      </section>
+    </main>
+  </div>
+
+  <div id="pdf-template" class="pdf-template" hidden>
+    <div class="pdf-box">
+      <header class="pdf-header">
+        <div><strong>ERP Cimento</strong><p>Orçamento de Materiais de Construção</p></div>
+        <div><p id="pdf-budget-code"></p><p id="pdf-date"></p></div>
+      </header>
+      <section class="pdf-section"><h3>Cliente</h3><p id="pdf-client"></p><p id="pdf-address"></p></section>
+      <section class="pdf-section"><h3>Materiais</h3><table class="pdf-table" id="pdf-materials"></table></section>
+      <section class="pdf-section pdf-summary">
+        <div><span>Subtotal</span><strong id="pdf-subtotal"></strong></div>
+        <div><span>Desconto</span><strong id="pdf-discount"></strong></div>
+        <div><span>Frete</span><strong id="pdf-shipping"></strong></div>
+        <div class="pdf-total"><span>Total</span><strong id="pdf-total"></strong></div>
+      </section>
+      <footer class="pdf-footer"><p>Observações:</p><p id="pdf-notes"></p></footer>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
